@@ -11,5 +11,17 @@ namespace PetSimulator
         int health = 10;
         int hunger = 10;
         int happiness = 10;
+
+        public void feed() {
+
+        }
+
+        public void play() {
+
+        }
+
+        public void rest() { 
+        
+        }
     }
 }
