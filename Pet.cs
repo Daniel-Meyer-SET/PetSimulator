@@ -33,8 +33,13 @@ namespace PetSimulator
 
         public void rest() {
             health = health + 4;
+            happiness = happiness - 1;
         }
 
+        public void timeTick() {
+            hunger = hunger + 3;
+            happiness = happiness - 1;
+        }
 
     }
 }
