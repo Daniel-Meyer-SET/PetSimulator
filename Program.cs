@@ -1,52 +1,63 @@
-﻿public class Program
-{
-    private static void Main(string[] args)
+﻿namespace PetSimulator {
+    public class Program
     {
-        Console.WriteLine("Welcome to Pet Simulator!\n");
-       
-      
-
-        string petType = " ";
-        bool typeSelected = false;
-        while (typeSelected == false)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("\nChoose a type of Pet ");
-            Console.WriteLine(" 1) Dog\n 2) Cat\n \n  3) Rabbit");
+            Console.WriteLine("Welcome to Pet Simulator!\n");
 
-            switch (Console.ReadKey().KeyChar) { 
-            case '1':
-                    Console.Clear();
-                    petType = "Dog";
-                    Console.WriteLine("\nYour new pet will be a Dog!");
-                    
-                    typeSelected = true; break;
-                    
-            
-            case '2':
-                    petType = "Cat";
-                    Console.Clear();
-                    Console.WriteLine("\nYour new pet will be a Cat!");
-                   
-                    typeSelected = true; break;
-                    
-            
-            case '3':
-                    petType = "Rabbit";
-                    Console.Clear();
-                    Console.WriteLine("\nYour new pet will be a Rabbit!");
-                   
-                    typeSelected = true; break;
-                   
 
-            default:
-                    Console.Clear();
-                    Console.WriteLine("Invalid Selection");
-            break;
 
-            
+            string petType = " ";
+            bool typeSelected = false;
+            while (typeSelected == false)
+            {
+                Console.WriteLine("\nChoose a type of Pet ");
+                Console.WriteLine(" 1) Dog\n 2) Cat\n \n  3) Rabbit");
+
+                switch (Console.ReadKey().KeyChar) {
+                    case '1':
+                        Console.Clear();
+                        petType = "Dog";
+                        Console.WriteLine("\nYour new pet will be a Dog!");
+
+                        typeSelected = true; break;
+
+
+                    case '2':
+                        petType = "Cat";
+                        Console.Clear();
+                        Console.WriteLine("\nYour new pet will be a Cat!");
+
+                        typeSelected = true; break;
+
+
+                    case '3':
+                        petType = "Rabbit";
+                        Console.Clear();
+                        Console.WriteLine("\nYour new pet will be a Rabbit!");
+
+                        typeSelected = true; break;
+
+
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Invalid Selection");
+                        break;
+
+
+                }
+
+
             }
+            if (typeSelected == true) {
+                Console.WriteLine("What Will You Name Your Pet?");
+                string name = "";
 
-           
+                name = Console.ReadLine();
+
+                Pet newPet = new Pet(petType,name);
+    
+        }
         }
     }
 }
