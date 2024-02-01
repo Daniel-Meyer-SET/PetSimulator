@@ -8,11 +8,11 @@ namespace PetSimulator
 {
     public class Pet
     {  //
-       private int health { get ; set; }
-       private  int hunger { get; set; }
-       private int happiness { get; set; }
-       private string name { get; set; }
-       private string type { get; set; }
+       public int health { get ; set; }
+       public  int hunger { get; set; }
+       public int happiness { get; set; }
+       public string name { get; set; }
+       public string type { get; set; }
 
         public Pet(string initType, string initName) {
             health = 10;

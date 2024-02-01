@@ -1,20 +1,29 @@
-﻿namespace PetSimulator {
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace PetSimulator {
     public class Program
     {
         private static void Main(string[] args)
+
+
         {
-            Console.WriteLine("Welcome to Pet Simulator!\n");
+            Console.WriteLine("Welcome to Pet Simulator!");
+           
+          Pet newPet = createPet();
 
+        
+        }
 
-
+            public static Pet createPet (){
             string petType = " ";
             bool typeSelected = false;
             while (typeSelected == false)
             {
                 Console.WriteLine("\nChoose a type of Pet ");
-                Console.WriteLine(" 1) Dog\n 2) Cat\n \n  3) Rabbit");
+                Console.WriteLine(" 1) Dog\n 2) Cat\n 3) Rabbit");
 
-                switch (Console.ReadKey().KeyChar) {
+                switch (Console.ReadKey().KeyChar)
+                {
                     case '1':
                         Console.Clear();
                         petType = "Dog";
@@ -49,15 +58,25 @@
 
 
             }
-            if (typeSelected == true) {
+            
+            
                 Console.WriteLine("What Will You Name Your Pet?");
                 string name = "";
 
                 name = Console.ReadLine();
 
-                Pet newPet = new Pet(petType,name);
-    
+                return new Pet(petType, name);
+ 
+            }
+
+        public static void resetPet(Pet pet) { 
+        
         }
-        }
+
+
+
+
+            
+        
     }
 }
