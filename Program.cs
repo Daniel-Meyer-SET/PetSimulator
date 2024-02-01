@@ -10,6 +10,7 @@ namespace PetSimulator {
             Console.WriteLine("Welcome to Pet Simulator!");
            
           Pet newPet = createPet();
+            simulation(newPet);
 
         
         }
@@ -65,11 +66,52 @@ namespace PetSimulator {
 
                 name = Console.ReadLine();
 
-                return new Pet(petType, name);
+                return new Pet(petType,name);
  
             }
 
-        public static void resetPet(Pet pet) { 
+       
+
+        public static void simulation(Pet pet) {
+
+            Console.WriteLine("Your New"+pet.type+" Is named "+pet.name);
+            Console.WriteLine("\n Commands: \nQ:Quit\nX:Reset\nF:Feed\nP:Play\nR:Rest");
+            bool quit = false;
+            while(pet.health > 0 || quit == false)
+            {
+                switch (Console.ReadKey().KeyChar)
+                {
+                    case 'Q':
+                       
+                        quit = true;
+                        
+
+                    break;
+
+
+                    case 'R':
+
+
+                        createPet();
+
+                         break;
+
+
+                    case 'F':
+                        pet.feed();
+                       
+
+                        break;
+
+
+                    default:
+                       
+                        break;
+
+
+                }
+            }
+
         
         }
 

@@ -40,11 +40,7 @@ namespace PetSimulator
             hunger = hunger + 3;
             happiness = happiness - 1;
         }
-        public String showStats() {
-
-            string stats = null;
-            return stats;
-        }
+        
 
     }
 }
