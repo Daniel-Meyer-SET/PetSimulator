@@ -8,24 +8,61 @@ namespace PetSimulator
 {
     public class Pet
     {  //
-       public int health { get ; set; }
-       public  int hunger { get; set; }
-       public int happiness { get; set; }
+        private int health;
+       public int Health
+        {
+            set { 
+               
+                if(value >=0 && value <= 10) { this.health = value; }
+                
+            }
+            get { 
+                return health;
+            }
+        }
+        private int hunger;
+        public  int Hunger
+        {
+            set
+            {
+
+                if (value >= 0 && value <= 10) { this.hunger = value; }
+
+            }
+            get
+            {
+                return hunger;
+            }
+        }
+        private int happiness;
+       public int Happiness
+        {
+            set
+            {
+
+                if (value >= 0 && value <= 10) { happiness = value; }
+
+            }
+            get
+            {
+                return happiness;
+            }
+        }
        public string name { get; set; }
        public string type { get; set; }
 
         public Pet(string initType, string initName) {
-            health = 10;
-            hunger = 0;
-            happiness =10;
+            Health = 10;
+            Hunger = 0;
+            Happiness =10;
             name = initName;
             type = initType;
         }
-        public void feed() {
-            if (happiness > 3)
+        public void Feed() {
+            if (Happiness > 3)
             {
-                hunger = hunger - 4;
-                health = health + 1;
+                Hunger = hunger - 4;
+                health ++;
                 Console.WriteLine("You fed your pet ");
             }
             else {
@@ -33,41 +70,42 @@ namespace PetSimulator
             }
         }
 
-        public void play() {
+        public void Play() {
             bool canplay = true;
-            if (hunger <=8)
+            if (Hunger >=8)
             {
                 canplay = false;
                 Console.WriteLine("Your pet is too hungry to play");
             }
-            if (health <3) { 
+            if (health <=3) { 
             canplay=false;
            Console.WriteLine("Your pet is too unhealthy to play");
             }
             if (canplay == true) {
-                happiness = happiness + 4;
-                hunger = hunger + 1;
+                Happiness = happiness + 4;
+                Hunger ++;
                 Console.WriteLine("You played with your pet");
             }
 
         }
 
-        public void rest() {
-            health = health + 4;
-            happiness = happiness - 1;
+        public void Rest() {
+            Health = health + 4;
+            Happiness = happiness - 1;
             Console.WriteLine("You let your pet rest");
         }
 
-        public void timeTick() {
-            hunger = hunger + 2;
-            happiness = happiness - 1;
+        public void TimeTick() {
+            Hunger = hunger + 2;
+            Happiness = happiness - 1;
 
-            if (hunger >= 7) {
-                health--;
+            if (Hunger >= 7) {
+                Health--;
             }
-            if (happiness < 2) {
-                health--;
+            if (Happiness < 2) {
+                Health--;
             }
+            
         }
         
 

@@ -10,13 +10,13 @@ namespace PetSimulator {
         {
             Console.WriteLine("Welcome to Pet Simulator!");
            
-          Pet newPet = createPet();
+          Pet newPet = CreatePet();
             simulation(newPet);
 
         
         }
 
-            public static Pet createPet (){
+            public static Pet CreatePet (){
             string petType = " ";
             bool typeSelected = false;
             while (typeSelected == false)
@@ -76,20 +76,21 @@ namespace PetSimulator {
         public static async void simulation(Pet pet) {
 
             Console.WriteLine("Your New"+pet.type+" Is named "+pet.name);
-            Console.WriteLine("\n Commands: \nQ:Quit\nX:Reset\nF:Feed\nP:Play\nR:Rest");
+            Console.WriteLine("\n Commands: \nq:Quit\nx:Reset\nf:Feed\np:Play\nr:Rest");
             bool quit = false;
-            var eventTimer = new System.Timers.Timer(2000);
+            var eventTimer = new System.Timers.Timer();
             eventTimer.Start();
-            while (pet.health > 0 || quit == false)
+            while (pet.Health > 0 || quit == false)
             {
                 // case statement to choose commands
 
 
                 timerCall(pet);
+                Console.WriteLine("Health:"+pet.Health,"\nHunger"+pet.Hunger,"Happiness:"+pet.Happiness);
 
                 switch (Console.ReadKey().KeyChar)
                 {
-                    case 'Q':
+                    case 'q':
                        
                         quit = true;
                         
@@ -97,36 +98,47 @@ namespace PetSimulator {
                     break;
 
 
-                    case 'R':
+                    case 'x':
 
                         quit = true;
-                        createPet();
+                        CreatePet();
                         
                          break;
 
 
-                    case 'F':
-                        pet.feed();
+                    case 'f':
+                        pet.Feed();
                        
+
+                        break;
+                    case 'p':
+                        pet.Play();
+
+
+                        break;
+                    case 'r':
+                        pet.Rest();
+
 
                         break;
 
 
                     default:
-                       
+
+                        Console.WriteLine("Invalid command");
                         break;
 
 
                 }
             }
-
+            
         
         }
 
         static async  void timerCall(Pet pet)
         {
             await Task.Delay(10000);
-            pet.timeTick();
+            pet.TimeTick();
         }
 
         
