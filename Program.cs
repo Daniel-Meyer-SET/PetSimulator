@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using System.Timers;
 
 namespace PetSimulator {
     public class Program
@@ -72,13 +73,20 @@ namespace PetSimulator {
 
        
 
-        public static void simulation(Pet pet) {
+        public static async void simulation(Pet pet) {
 
             Console.WriteLine("Your New"+pet.type+" Is named "+pet.name);
             Console.WriteLine("\n Commands: \nQ:Quit\nX:Reset\nF:Feed\nP:Play\nR:Rest");
             bool quit = false;
-            while(pet.health > 0 || quit == false)
+            var eventTimer = new System.Timers.Timer(2000);
+            eventTimer.Start();
+            while (pet.health > 0 || quit == false)
             {
+                // case statement to choose commands
+
+
+                timerCall(pet);
+
                 switch (Console.ReadKey().KeyChar)
                 {
                     case 'Q':
@@ -91,9 +99,9 @@ namespace PetSimulator {
 
                     case 'R':
 
-
+                        quit = true;
                         createPet();
-
+                        
                          break;
 
 
@@ -115,7 +123,13 @@ namespace PetSimulator {
         
         }
 
+        static async  void timerCall(Pet pet)
+        {
+            await Task.Delay(10000);
+            pet.timeTick();
+        }
 
+        
 
 
             
