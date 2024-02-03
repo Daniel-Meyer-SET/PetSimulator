@@ -59,15 +59,13 @@ namespace PetSimulator
             type = initType;
         }
         public void Feed() {
-            if (Happiness > 3)
-            {
+          
                 Hunger = hunger - 4;
-                health ++;
-                Console.WriteLine("You fed your pet ");
-            }
-            else {
-                Console.WriteLine("Your pet is too unhappy, it refused to eat");
-            }
+                Health ++;
+            TimeTick();
+            Console.WriteLine("You fed your pet ");
+            
+            
         }
 
         public void Play() {
@@ -75,29 +73,32 @@ namespace PetSimulator
             if (Hunger >=8)
             {
                 canplay = false;
+                TimeTick();
                 Console.WriteLine("Your pet is too hungry to play");
             }
-            if (health <=3) { 
+            if (Health <=3) { 
             canplay=false;
            Console.WriteLine("Your pet is too unhealthy to play");
             }
             if (canplay == true) {
-                Happiness = happiness + 4;
+                Happiness = Happiness + 4;
                 Hunger ++;
+                TimeTick();
                 Console.WriteLine("You played with your pet");
             }
 
         }
 
         public void Rest() {
-            Health = health + 4;
+            Health = Health + 4;
             Happiness = happiness - 1;
+            TimeTick();
             Console.WriteLine("You let your pet rest");
         }
 
         public void TimeTick() {
-            Hunger = hunger + 2;
-            Happiness = happiness - 1;
+            Hunger = Hunger + 2;
+            Happiness = Happiness - 1;
 
             if (Hunger >= 7) {
                 Health--;

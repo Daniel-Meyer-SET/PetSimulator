@@ -79,7 +79,7 @@ namespace PetSimulator
         {
 
             Console.WriteLine("Your New" + pet.type + " Is named " + pet.name);
-            Console.WriteLine("\n Commands: \nq:Quit\nx:Reset\nf:Feed\np:Play\nr:Rest\nc:check stats");
+            Console.WriteLine("\n Commands: \nq:Quit\nx:Reset\nf:Feed\n:Play\nr:Rest\nc:check stats");
             bool quit = false;
 
             while (quit == false)
@@ -112,17 +112,16 @@ namespace PetSimulator
 
                         case 'f':
                             pet.Feed();
-                            showPetStats(pet);
-
+                            
                             break;
                         case 'p':
                             pet.Play();
-                            showPetStats(pet);
+                           
 
                             break;
                         case 'r':
                             pet.Rest();
-                            showPetStats(pet);
+                           
 
                             break;
                         case 'c':
@@ -141,12 +140,7 @@ namespace PetSimulator
                     }
                    
                 }
-                else
-                {
-                    Thread.Sleep(5000);
-                    pet.TimeTick();
-                    showPetStats(pet);
-                }
+               
                 if (pet.Health == 0)
                 {
                     Console.WriteLine("Your Pet Didn't make it :(");
