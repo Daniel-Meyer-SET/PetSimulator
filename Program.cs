@@ -73,74 +73,74 @@ namespace PetSimulator {
 
        
 
-        public static async void simulation(Pet pet) {
+        public static  void simulation(Pet pet) {
 
             Console.WriteLine("Your New"+pet.type+" Is named "+pet.name);
-            Console.WriteLine("\n Commands: \nq:Quit\nx:Reset\nf:Feed\np:Play\nr:Rest");
+            Console.WriteLine("\n Commands: \nq:Quit\nx:Reset\nf:Feed\n:Play\nR:Rest");
             bool quit = false;
-            var eventTimer = new System.Timers.Timer();
-            eventTimer.Start();
-            while (pet.Health > 0 || quit == false)
+           
+            while (quit == false)
             {
                 // case statement to choose commands
 
 
-                timerCall(pet);
-                Console.WriteLine("Health:"+pet.Health,"\nHunger"+pet.Hunger,"Happiness:"+pet.Happiness);
+               Thread.Sleep(5000);
+                pet.TimeTick();
+                Console.WriteLine("Health:" + pet.Health + "\nHunger" + pet.Hunger + "Happiness:" + pet.Happiness);
 
-                switch (Console.ReadKey().KeyChar)
-                {
-                    case 'q':
-                       
-                        quit = true;
-                        
+                if (Console.KeyAvailable){
+                    switch (Console.ReadKey(false).KeyChar)
+                    {
+                        case 'q':
 
-                    break;
-
-
-                    case 'x':
-
-                        quit = true;
-                        CreatePet();
-                        
-                         break;
+                            quit = true;
 
 
-                    case 'f':
-                        pet.Feed();
-                       
-
-                        break;
-                    case 'p':
-                        pet.Play();
+                            break;
 
 
-                        break;
-                    case 'r':
-                        pet.Rest();
+                        case 'x':
+
+                            quit = true;
+                            CreatePet();
+
+                            break;
 
 
-                        break;
+                        case 'f':
+                            pet.Feed();
 
 
-                    default:
+                            break;
+                        case 'p':
+                            pet.Play();
 
-                        Console.WriteLine("Invalid command");
-                        break;
+
+                            break;
+                        case 'r':
+                            pet.Rest();
 
 
+                            break;
+
+
+                        default:
+
+                            Console.WriteLine("Invalid command");
+                            break;
+
+
+                    }
+                    if (pet.Health == 0) { 
+                    quit = true;
+                    }
                 }
             }
             
         
         }
 
-        static async  void timerCall(Pet pet)
-        {
-            await Task.Delay(10000);
-            pet.TimeTick();
-        }
-
+       
         
 
 
