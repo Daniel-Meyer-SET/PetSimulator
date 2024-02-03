@@ -74,17 +74,17 @@ namespace PetSimulator
             {
                 canplay = false;
                 TimeTick();
-                Console.WriteLine("Your pet is too hungry to play");
+                
             }
             if (Health <=3) { 
             canplay=false;
-           Console.WriteLine("Your pet is too unhealthy to play");
+          
             }
             if (canplay == true) {
                 Happiness = Happiness + 4;
                 Hunger ++;
                 TimeTick();
-                Console.WriteLine("You played with your pet");
+
             }
 
         }
@@ -93,7 +93,7 @@ namespace PetSimulator
             Health = Health + 4;
             Happiness = happiness - 1;
             TimeTick();
-            Console.WriteLine("You let your pet rest");
+            
         }
 
         public void TimeTick() {

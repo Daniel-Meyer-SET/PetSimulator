@@ -112,16 +112,18 @@ namespace PetSimulator
 
                         case 'f':
                             pet.Feed();
-                            
+
+                            Console.WriteLine("You fed with" + pet.name + "\nHunger decresed, health increased slightly");
                             break;
                         case 'p':
                             pet.Play();
-                           
+                        Console.WriteLine("You Played with" + pet.name + "\nHappiness incresed, hunger increased slightly");
 
                             break;
                         case 'r':
                             pet.Rest();
-                           
+                            Console.WriteLine("You let"+pet.name+"rest\n Health increased, happiness decreased slightly");
+
 
                             break;
                         case 'c':
