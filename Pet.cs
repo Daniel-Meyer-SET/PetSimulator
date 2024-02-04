@@ -63,7 +63,7 @@ namespace PetSimulator
                 Hunger = hunger - 4;
                 Health ++;
             TimeTick();
-            Console.WriteLine("You fed your pet ");
+           
             
             
         }
@@ -73,20 +73,20 @@ namespace PetSimulator
             if (Hunger >=8)
             {
                 canplay = false;
-                TimeTick();
+                Console.WriteLine("");
                 
             }
             if (Health <=3) { 
             canplay=false;
-          
+               
             }
             if (canplay == true) {
                 Happiness = Happiness + 4;
                 Hunger ++;
-                TimeTick();
+                
 
             }
-
+            TimeTick();
         }
 
         public void Rest() {

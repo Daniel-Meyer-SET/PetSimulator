@@ -16,7 +16,7 @@ namespace PetSimulator
 
 
         }
-
+        // creating pet
         public static Pet CreatePet()
         {
             string petType = " ";
@@ -25,10 +25,11 @@ namespace PetSimulator
             {
                 Console.WriteLine("\nChoose a type of Pet ");
                 Console.WriteLine(" 1) Dog\n 2) Cat\n 3) Rabbit");
-
+                // switch statement to choose pet
                 switch (Console.ReadKey().KeyChar)
                 {
                     case '1':
+                        // clear the console to clean up UI
                         Console.Clear();
                         petType = "Dog";
                         Console.WriteLine("\nYour new pet will be a Dog!");
@@ -68,30 +69,25 @@ namespace PetSimulator
             string name = "";
 
             name = Console.ReadLine();
-
+            //return for use later in other functions
             return new Pet(petType, name);
 
         }
 
 
-
+        // simulation function 
         public static void simulation(Pet pet)
         {
 
             Console.WriteLine("Your New" + pet.type + " Is named " + pet.name);
-            Console.WriteLine("\n Commands: \nq:Quit\nx:Reset\nf:Feed\n:Play\nr:Rest\nc:check stats");
+            Console.WriteLine("\n Commands: \nq:Quit\nf:Feed\n:Play\nr:Rest\nc:check stats");
             bool quit = false;
 
             while (quit == false)
             {
                 // case statement to choose commands
 
-
-
-
-
-                if (Console.KeyAvailable)
-                {
+               
                     switch (Console.ReadKey(false).KeyChar)
                     {
                         case 'q':
@@ -101,16 +97,9 @@ namespace PetSimulator
 
                             break;
 
-
-                        case 'x':
-
-                            quit = true;
-                            CreatePet();
-
-                            break;
-
-
+                        
                         case 'f':
+                         
                             pet.Feed();
 
                             Console.WriteLine("You fed with" + pet.name + "\nHunger decresed, health increased slightly");
@@ -140,12 +129,28 @@ namespace PetSimulator
 
 
                     }
-                   
+
+
+                if (pet.Hunger> 7)
+                {
+                    Console.WriteLine(pet.name + "is very hungry!");
+                    quit = true;
                 }
-               
+                if (pet.Happiness < 3)
+                {
+                    Console.WriteLine(pet.name + "is unhappy!");
+                    quit = true;
+                }
+
+                if (pet.Health < 3)
+                {
+                    Console.WriteLine(pet.name+"is unhealthy!");
+                    quit = true;
+                }
+
                 if (pet.Health == 0)
                 {
-                    Console.WriteLine("Your Pet Didn't make it :(");
+                    Console.WriteLine(pet.name+" Didn't make it :(");
                     quit = true;
                 }
 
