@@ -98,7 +98,7 @@ namespace PetSimulator
 
         public void Play() {
             bool canplay = true;
-            TimeTick();
+           
             if (Hunger >=8)
             {
                 canplay = false;
@@ -118,7 +118,7 @@ namespace PetSimulator
 
 
             }
-
+            TimeTick();
         }
 
         public void Rest() {
