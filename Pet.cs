@@ -109,7 +109,7 @@ namespace PetSimulator
             // pet will not play if too unhealth or too hungry
             if (Health <=3) { 
             canplay=false;
-             Console.WriteLine(name+" is too unhappy to play");
+             Console.WriteLine(name+" is too unhealthy to play");
             }
             if (canplay == true) {
                 Happiness = Happiness + 4;
