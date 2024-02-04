@@ -11,9 +11,15 @@ namespace PetSimulator
         private int health;
        public int Health
         {
-            set { 
-               
-                if(value >=0 && value <= 10) { this.health = value; }
+            set {
+
+                if (value >= 0 && value <= 10) { this.health = value; }
+                else if (value < 0) { 
+                value = 0;
+                }
+                else if (value < 10) {
+                    value = 10;
+                }
                 
             }
             get { 
@@ -27,6 +33,15 @@ namespace PetSimulator
             {
 
                 if (value >= 0 && value <= 10) { this.hunger = value; }
+                else if (value < 0)
+                {
+                    value = 0;
+                }
+                else if (value < 10)
+                {
+                    value = 10;
+                }
+
 
             }
             get
@@ -41,6 +56,15 @@ namespace PetSimulator
             {
 
                 if (value >= 0 && value <= 10) { happiness = value; }
+                else if (value < 0)
+                {
+                    value = 0;
+                }
+                else if (value < 10)
+                {
+                    value = 10;
+                }
+
 
             }
             get
@@ -60,7 +84,7 @@ namespace PetSimulator
         }
         public void Feed() {
           
-                Hunger = hunger - 4;
+                Hunger = hunger - 5;
                 Health ++;
          // TimeTick is called to simulate passage of time after each action
             TimeTick();

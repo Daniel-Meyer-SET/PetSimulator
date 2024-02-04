@@ -55,7 +55,7 @@ namespace PetSimulator
 
                     default:
                         Console.Clear();
-                        Console.WriteLine("Invalid Selection");
+                        Console.WriteLine("\nInvalid Selection");
                         break;
 
 
@@ -79,7 +79,7 @@ namespace PetSimulator
         public static void simulation(Pet pet)
         {
 
-            Console.WriteLine("Your New " + pet.type + " Is named " + pet.name);
+            Console.WriteLine("\nYour New " + pet.type + " Is named " + pet.name);
             Console.WriteLine("\n Commands: \nq:Quit\nf:Feed\np:Play\nr:Rest\nc:check stats");
             bool quit = false;
 
@@ -102,16 +102,16 @@ namespace PetSimulator
                          
                             pet.Feed();
 
-                            Console.WriteLine("You fed with" + pet.name + "\nHunger decresed, health increased slightly");
+                            Console.WriteLine("\nYou fed " + pet.name + "\nHunger decresed, health increased slightly");
                             break;
                         case 'p':
                             pet.Play();
-                        Console.WriteLine("You Played with" + pet.name + "\nHappiness incresed, hunger increased slightly");
+                        Console.WriteLine("\nYou Played with" + pet.name + "\nHappiness incresed, hunger increased slightly");
 
                             break;
                         case 'r':
                             pet.Rest();
-                            Console.WriteLine("You let"+pet.name+"rest\n Health increased, happiness decreased slightly");
+                            Console.WriteLine("\nYou let"+pet.name+"rest\n Health increased, happiness decreased slightly");
 
 
                             break;
@@ -123,8 +123,9 @@ namespace PetSimulator
 
 
                         default:
-
-                            Console.WriteLine("Invalid command");
+                            // default case will simulate passage of time by triggering time tick event with no other actions
+                            Console.WriteLine("\nyou waited for 1 hour");
+                            pet.TimeTick();
                             break;
 
 
@@ -133,12 +134,12 @@ namespace PetSimulator
                 // notify user of critical status
                 if (pet.Hunger> 7)
                 {
-                    Console.WriteLine(pet.name + "is very hungry!");
+                    Console.WriteLine("\n"+pet.name + " is very hungry!");
                    
                 }
                 if (pet.Happiness < 3)
                 {
-                    Console.WriteLine(pet.name + "is unhappy!");
+                    Console.WriteLine("\n"+pet.name + " is unhappy!");
                     
                 }
 
