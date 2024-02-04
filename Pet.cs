@@ -91,7 +91,7 @@ namespace PetSimulator
         public void Feed() {
             // TimeTick is called to simulate passage of time after each action
             TimeTick();
-            Hunger = Hunger - 4;
+            Hunger = Hunger - 6;
             Health = Health +2;
             Console.WriteLine("\nYou fed " + name + "\nHunger decresed, health increased slightly");
         }
