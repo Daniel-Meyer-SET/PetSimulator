@@ -79,8 +79,8 @@ namespace PetSimulator
         public static void simulation(Pet pet)
         {
 
-            Console.WriteLine("Your New" + pet.type + " Is named " + pet.name);
-            Console.WriteLine("\n Commands: \nq:Quit\nf:Feed\n:Play\nr:Rest\nc:check stats");
+            Console.WriteLine("Your New " + pet.type + " Is named " + pet.name);
+            Console.WriteLine("\n Commands: \nq:Quit\nf:Feed\np:Play\nr:Rest\nc:check stats");
             bool quit = false;
 
             while (quit == false)
@@ -130,22 +130,22 @@ namespace PetSimulator
 
                     }
 
-
+                // notify user of critical status
                 if (pet.Hunger> 7)
                 {
                     Console.WriteLine(pet.name + "is very hungry!");
-                    quit = true;
+                   
                 }
                 if (pet.Happiness < 3)
                 {
                     Console.WriteLine(pet.name + "is unhappy!");
-                    quit = true;
+                    
                 }
 
                 if (pet.Health < 3)
                 {
                     Console.WriteLine(pet.name+"is unhealthy!");
-                    quit = true;
+                  
                 }
 
                 if (pet.Health == 0)
@@ -156,7 +156,7 @@ namespace PetSimulator
 
             }
 
-
+            // function to display pet status
             static void showPetStats(Pet pet)
             {
                 Console.WriteLine("\n\nHealth:" + pet.Health + "\nHunger" + pet.Hunger + "\nHappiness:" + pet.Happiness);

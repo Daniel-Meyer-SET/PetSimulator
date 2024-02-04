@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PetSimulator
 {
     public class Pet
-    {  //
+    {  // get and set functions limit range of properties
         private int health;
        public int Health
         {
@@ -50,7 +50,7 @@ namespace PetSimulator
         }
        public string name { get; set; }
        public string type { get; set; }
-
+        // constructor method
         public Pet(string initType, string initName) {
             Health = 10;
             Hunger = 0;
@@ -62,6 +62,7 @@ namespace PetSimulator
           
                 Hunger = hunger - 4;
                 Health ++;
+         // TimeTick is called to simulate passage of time after each action
             TimeTick();
            
             
@@ -73,12 +74,14 @@ namespace PetSimulator
             if (Hunger >=8)
             {
                 canplay = false;
-                Console.WriteLine("");
-                
+                Console.WriteLine(name+" is too hungry to play");
+
             }
+
+            // pet will not play if too unhealth or too hungry
             if (Health <=3) { 
             canplay=false;
-               
+             Console.WriteLine(name+" is too unhappy to play");
             }
             if (canplay == true) {
                 Happiness = Happiness + 4;
@@ -97,12 +100,15 @@ namespace PetSimulator
         }
 
         public void TimeTick() {
+           // decrease hunger and happiness after each action to simulate time passage
             Hunger = Hunger + 2;
             Happiness = Happiness - 1;
 
-            if (Hunger >= 7) {
+            // decrease health if pet is very hungry
+            if (Hunger >= 8) {
                 Health--;
             }
+            // decrease health if pet is very unhappy
             if (Happiness < 2) {
                 Health--;
             }
