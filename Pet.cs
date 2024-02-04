@@ -92,8 +92,8 @@ namespace PetSimulator
             // TimeTick is called to simulate passage of time after each action
             TimeTick();
             Hunger = Hunger - 4;
-            Health = Health +2;        
-        
+            Health = Health +2;
+            Console.WriteLine("\nYou fed " + name + "\nHunger decresed, health increased slightly");
         }
 
         public void Play() {
@@ -114,18 +114,19 @@ namespace PetSimulator
             if (canplay == true) {
                 Happiness = Happiness + 4;
                 Hunger++;
-                
+                Console.WriteLine("\nYou Played with " + name + "\nHappiness incresed, hunger increased slightly");
+
 
             }
-           
+
         }
 
         public void Rest() {
             TimeTick();
             Health = Health + 4;
             Happiness--;
-           
-            
+            Console.WriteLine("\nYou let " + name + " rest\n Health increased, happiness decreased slightly");
+
         }
 
         public void TimeTick() {
