@@ -15,10 +15,12 @@ namespace PetSimulator
 
                 if (value >= 0 && value <= 10) { this.health = value; }
                 else if (value < 0) { 
-                value = 0;
+              
+                    this.health = 0;
                 }
                 else if (value < 10) {
-                    value = 10;
+                   
+                    this.health = 10;
                 }
                 
             }
@@ -35,11 +37,13 @@ namespace PetSimulator
                 if (value >= 0 && value <= 10) { this.hunger = value; }
                 else if (value < 0)
                 {
-                    value = 0;
+                   
+                    this.hunger = 0;
                 }
                 else if (value < 10)
                 {
-                    value = 10;
+                    
+                    this.hunger = 10;
                 }
 
 
@@ -58,11 +62,13 @@ namespace PetSimulator
                 if (value >= 0 && value <= 10) { happiness = value; }
                 else if (value < 0)
                 {
-                    value = 0;
+                   
+                    this.happiness = 0;
                 }
                 else if (value < 10)
                 {
-                    value = 10;
+                   
+                    this.happiness= 10;
                 }
 
 
@@ -84,7 +90,7 @@ namespace PetSimulator
         }
         public void Feed() {
           
-                Hunger = hunger - 5;
+                Hunger = hunger - 4;
                 Health ++;
          // TimeTick is called to simulate passage of time after each action
             TimeTick();
