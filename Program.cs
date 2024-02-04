@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿
+using System.Security.Cryptography.X509Certificates;
 using System.Timers;
 
 namespace PetSimulator
@@ -80,18 +81,21 @@ namespace PetSimulator
         {
 
             Console.WriteLine("\nYour New " + pet.type + " Is named " + pet.name);
-            Console.WriteLine("\n Commands: \nq:Quit\nf:Feed\np:Play\nr:Rest\nc:check stats");
             bool quit = false;
 
             while (quit == false)
             {
+
+                
+               
+                Console.WriteLine("\nCommands: \nq:Quit\nf:Feed\np:Play\nr:Rest\nc:check stats");
                 // case statement to choose commands
 
-               
-                    switch (Console.ReadKey(false).KeyChar)
+
+                switch (Console.ReadKey(false).KeyChar)
                     {
                         case 'q':
-
+                        Console.WriteLine("Goodbye");
                             quit = true;
 
 
@@ -106,19 +110,19 @@ namespace PetSimulator
                             break;
                         case 'p':
                             pet.Play();
-                        Console.WriteLine("\nYou Played with" + pet.name + "\nHappiness incresed, hunger increased slightly");
+                        Console.WriteLine("\nYou Played with " + pet.name + "\nHappiness incresed, hunger increased slightly");
 
                             break;
                         case 'r':
                             pet.Rest();
-                            Console.WriteLine("\nYou let"+pet.name+"rest\n Health increased, happiness decreased slightly");
+                            Console.WriteLine("\nYou let "+pet.name+" rest\n Health increased, happiness decreased slightly");
 
 
                             break;
                         case 'c':
-
-                            showPetStats(pet);
-
+                        Console.WriteLine(":Check Stats");
+                        showPetStats(pet);
+                        
                             break;
 
 

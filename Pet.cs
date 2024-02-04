@@ -18,7 +18,7 @@ namespace PetSimulator
               
                     this.health = 0;
                 }
-                else if (value < 10) {
+                else if (value > 10) {
                    
                     this.health = 10;
                 }
@@ -40,7 +40,7 @@ namespace PetSimulator
                    
                     this.hunger = 0;
                 }
-                else if (value < 10)
+                else if (value > 10)
                 {
                     
                     this.hunger = 10;
@@ -65,7 +65,7 @@ namespace PetSimulator
                    
                     this.happiness = 0;
                 }
-                else if (value < 10)
+                else if (value > 10)
                 {
                    
                     this.happiness= 10;
@@ -89,18 +89,16 @@ namespace PetSimulator
             type = initType;
         }
         public void Feed() {
-          
-                Hunger = hunger - 4;
-                Health ++;
-         // TimeTick is called to simulate passage of time after each action
+            // TimeTick is called to simulate passage of time after each action
             TimeTick();
-           
-            
-            
+            Hunger = hunger - 4;
+                Health ++;        
+        
         }
 
         public void Play() {
             bool canplay = true;
+            TimeTick();
             if (Hunger >=8)
             {
                 canplay = false;
@@ -119,13 +117,14 @@ namespace PetSimulator
                 
 
             }
-            TimeTick();
+           
         }
 
         public void Rest() {
+            TimeTick();
             Health = Health + 4;
             Happiness = happiness - 1;
-            TimeTick();
+           
             
         }
 
