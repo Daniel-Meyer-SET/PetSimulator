@@ -167,11 +167,6 @@ namespace PetSimulator
                 Console.WriteLine("\n\nHealth:" + pet.Health + "\nHunger" + pet.Hunger + "\nHappiness:" + pet.Happiness);
             }
 
-
-
-
-
-
         }
     }
 }
