@@ -91,8 +91,8 @@ namespace PetSimulator
         public void Feed() {
             // TimeTick is called to simulate passage of time after each action
             TimeTick();
-            Hunger = hunger - 4;
-                Health ++;        
+            Hunger = Hunger - 4;
+            Health = Health +2;        
         
         }
 
@@ -113,7 +113,7 @@ namespace PetSimulator
             }
             if (canplay == true) {
                 Happiness = Happiness + 4;
-                Hunger ++;
+                Hunger++;
                 
 
             }
@@ -123,7 +123,7 @@ namespace PetSimulator
         public void Rest() {
             TimeTick();
             Health = Health + 4;
-            Happiness = happiness - 1;
+            Happiness--;
            
             
         }
@@ -131,7 +131,7 @@ namespace PetSimulator
         public void TimeTick() {
            // decrease hunger and happiness after each action to simulate time passage
             Hunger = Hunger + 2;
-            Happiness = Happiness - 1;
+            Happiness --;
 
             // decrease health if pet is very hungry
             if (Hunger >= 8) {
